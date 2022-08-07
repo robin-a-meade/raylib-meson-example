@@ -46,6 +46,7 @@ project('raylib-meson-example', 'c',
 raylib_dep = dependency('raylib_linux_amd64_dep')
 
 # We need to link to the math library
+# https://stackoverflow.com/a/1033940 <== Explains why libm is separate from libc
 # https://mesonbuild.com/howtox.html#add-math-library-lm-portably
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
