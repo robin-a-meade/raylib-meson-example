@@ -49,7 +49,7 @@ raylib_dep = dependency('raylib_linux_amd64_dep')
 # https://stackoverflow.com/a/1033940 <== Explains why libm is separate from libc
 # https://mesonbuild.com/howtox.html#add-math-library-lm-portably
 cc = meson.get_compiler('c')
-m_dep = cc.find_library('m', required : false)
+m_dep = cc.find_library('m', required: false)
 
 deps = [raylib_dep, m_dep]
 
