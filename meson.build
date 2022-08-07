@@ -10,11 +10,20 @@ project('raylib-meson-example', 'c',
 #
 # Other default options to try:
 #   'buildtype=release'
-#   'default_library=static' <== Not useful for this project.
+#   'default_library=static'
+#
+# NOTE: As far as I can tell, 'default_library=static' doesn't mean that the
+# executable we are building has all its libraries statically linked. It means
+# any libraries we build are static libraries, not shared libraries. To build a
+# statically linked executable we must add the keyword argument `static: true`
+# to each library depedency that we declare.  I'm still looking for a way to
+# control this from the top-level meson-build file, so that wrapped
+# dependencies in subprojects know that we are trying to build a statically
+# linked executable.
 #
 # See full list of options: https://mesonbuild.com/Builtin-options.html
 
-# Retrieve the raylibe library dependency from the wrapped raylib depedency we
+# Retrieve the raylib library dependency from the wrapped raylib dependency we
 # set up in the subprojects folder
 #
 # If you inspect the .wrap file, you'll notice that it provides a dependency
