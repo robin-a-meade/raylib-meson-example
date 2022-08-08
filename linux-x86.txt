@@ -1,0 +1,39 @@
+# --------------------------------------------------------------------------
+# Cross build definition file for compiling a 32-bit x86 executable
+#
+# Set up a build directory:
+#
+#   meson setup --cross-file linux-x86.txt build-dir-for-x86
+#
+# Compile:
+#
+#   meson compile -v -C build-dir-for-x86
+#
+# Run:
+#
+#   build-dir-for-x86/shapes_bouncing_ball
+#
+# You'll probably need to install some 32 bit libraries. For example, I had to
+# do this on Fedora:
+#
+#   sudo dnf install glibc-devel.i686
+#   sudo dnf install gdk-pixbuf2-xlib.i686
+#   sudo dnf install glx-utils.i686
+#   sudo dnf install mesa-dri-drivers.i686
+#
+# --------------------------------------------------------------------------
+
+[binaries]
+# c = '/usr/bin/gcc'        <== I switched to using an array (next line)
+c = ['/usr/bin/gcc', '-m32']
+strip = '/usr/bin/strip'
+
+[properties]
+# c_args = ['-m32']         <== Alternate way, instead of the array
+# c_link_args = ['-m32']    <== Wasn't needed
+
+[host_machine]
+system = 'linux'
+cpu_family = 'x86'
+cpu = 'i686'
+endian = 'little'
