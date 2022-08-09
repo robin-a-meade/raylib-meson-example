@@ -1,0 +1,25 @@
+[wrap-file]
+
+# This must match the directory in the tarball
+directory = raylib-4.0.0_linux_i386
+
+source_url = https://github.com/raysan5/raylib/releases/download/4.0.0/raylib-4.0.0_linux_i386.tar.gz
+
+# This is required.
+# It isn't inferred by the source_url, or from the download process.
+# The file name can be whatever you want.
+# This is the file name by which it will be known in the subprojects/packagecache directory
+# Obviously, if you are downloading the releases for different systems and cpu architectures,
+# you must give them different file names, or the wrong file will be found in the cache.
+source_filename = raylib-4.0.0_linux_i386.tar.gz
+
+# sha256 checksum
+# The github web ui provides no affordance to get the sha256 checksum. Discussion:
+# https://github.com/orgs/community/discussions/23512
+# We must resort to downloading the tarball and calculating it ourselves using the sha256sum command
+source_hash = fa10fe023b63e51027626b73aa20c3ac549e6fa6c68e04bacc0a5ece005a9208
+
+patch_directory = raylib-4.0.0
+
+[provide]
+raylib_linux_x86_dep = raylib_dep
