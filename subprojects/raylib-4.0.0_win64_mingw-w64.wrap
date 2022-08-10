@@ -1,0 +1,32 @@
+[wrap-file]
+
+# This must match the directory contained in the .zip file
+# NOTE: In some cases, a .zip file (or tarball) will not have an enclosing lead
+# directory. In such a case, it is necessary to use the the `lead_directory_missing` field
+# to correct for this.
+directory = raylib-4.0.0_win64_mingw-w64
+
+source_url = https://github.com/raysan5/raylib/releases/download/4.0.0/raylib-4.0.0_win64_mingw-w64.zip
+
+# This is required.
+# No, the value is not inferred by the source_url, or from the Content-Disposition header.
+# The file name can be whatever you want you want it to be, as long as it is
+# unique enough to not cause file name collisions with other files in the packagecache directory.
+# This is the file name by which it will be saved in the subprojects/packagecache directory.
+# If you are downloading the releases for different systems and cpu architectures,
+# you must give them different file names, or the wrong file will be found in the cache.
+# Usually the upstream file name is fine and meets these uniqueness requirements, so just
+# use that unless you have a good reason not to.
+#source_filename = raylib-4.0.0_linux_amd64.tar.gz
+source_filename = raylib-4.0.0_win64_mingw-w64.zip
+
+# sha256 checksum
+# The github web ui provides no affordance for getting the sha256 checksum. Discussion:
+# https://github.com/orgs/community/discussions/23512
+# We must resort to downloading the file and calculating it ourselves using the sha256sum command
+source_hash = ea5440a9eb76c2f2642d3ce1b0c8750d3be6b7debf01ff4661fd7b3d08d29baf
+
+patch_directory = raylib-4.0.0
+
+[provide]
+raylib_win64_mingw_dep = raylib_dep
