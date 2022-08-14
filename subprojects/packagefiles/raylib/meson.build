@@ -1,4 +1,4 @@
-project('raylib', 'c', version: '4.0.0')
+project('raylib', 'c', version: '4.2.0')
 
 compiler = meson.get_compiler('c')
 
