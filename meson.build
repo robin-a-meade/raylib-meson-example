@@ -8,6 +8,12 @@ project('raylib-meson-example', 'c',
 #
 # We didn't specify buildtype, so the default of 'debug' is assumed.
 #
+# I wondered if a adding 'default_library=static' to default_options would build a
+# statically linked executable. Hinted at here:
+# https://github.com/mesonbuild/meson/issues/5385#issuecomment-491628333
+# https://github.com/mesonbuild/meson/discussions/9830#discussioncomment-1976373
+# It didn't in my testing. Maybe I did it wrong or misunderstood.
+#
 # See full list of options: https://mesonbuild.com/Builtin-options.html
 
 # Retrieve the raylib dependency from one of wrapped raylib dependencies we've
